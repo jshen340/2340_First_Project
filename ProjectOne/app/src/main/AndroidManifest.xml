@@ -13,10 +13,7 @@
         android:theme="@style/Theme._2340ProjectOne"
         tools:targetApi="31">
         <activity
-            android:name=".ui.dashboard.DashboardFragment"
-            android:exported="false" />
-        <activity
-            android:name=".ui.dashboard.DashboardFragment"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
