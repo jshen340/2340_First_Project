@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -18,6 +19,7 @@ import com.example.a2340projectone.databinding.FragmentNotificationsBinding;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 public class NotificationsFragment extends Fragment {
 
@@ -33,6 +35,7 @@ public class NotificationsFragment extends Fragment {
         NotificationsViewModel notificationsViewModel =
                 new ViewModelProvider(this).get(NotificationsViewModel.class);
 
+
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -42,29 +45,13 @@ public class NotificationsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Integer examTitle = null;
-        try {
-            examTitle = NotificationsFragmentArgs.fromBundle(getArguments()).getMyArg();
-        } catch (Exception e) {
 
-        }
 
 //        final TextView textView = binding.textNotifications;
 //        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
 
-        items.add(new Exam("FILLERORG", "Whats up", "Hello", "I am", "LOL"));
-
-        Exam examtoBeadded = null;
-        if (examTitle == null) {
-            examtoBeadded = new Exam("FILLER", "Whats up", "Hello", "I am", "LOL");
-            ExamList.exams.add(examtoBeadded);
-        } else {
-            examtoBeadded = new Exam("" + examTitle, "Whats up", "Hello", "I am", "LOL");
-            ExamList.exams.add(examtoBeadded);
-//            items.add(examtoBeadded);
-        }
-
+        //items.add(new Exam("FILLERORG", "Whats up", "Hello", "I am", "LOL"));
         RecyclerView recycler = binding.recyclerView;
         recycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
         ExamAdapter adapter = new ExamAdapter(ExamList.exams);
@@ -72,11 +59,7 @@ public class NotificationsFragment extends Fragment {
         adapter.notifyItemInserted(ExamList.exams.size()-1);
         binding.addButton.setOnClickListener(view2 -> {
             NavHostFragment.findNavController(NotificationsFragment.this).navigate(R.id.action_navigation_notifications_to_add_exam);
-
         });
-
-
-
     }
 
     @Override

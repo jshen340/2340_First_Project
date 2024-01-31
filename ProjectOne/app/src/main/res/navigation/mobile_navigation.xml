@@ -26,16 +26,39 @@
             android:id="@+id/action_navigation_notifications_to_add_exam"
             app:destination="@id/add_exam" />
         <argument
-            android:name="myArg"
-            app:argType="integer" />
+            android:name="exam"
+            app:argType="string" />
+        <argument
+            android:name="course"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+        <argument
+            android:name="location"
+            app:argType="string" />
+        <argument
+            android:name="time"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/add_exam"
         android:name="com.example.a2340projectone.ui.notifications.add_exam"
-        android:label="fragment_add_exam"
+        android:label="Add Exams"
         tools:layout="@layout/fragment_add_exam" >
         <action
             android:id="@+id/action_add_exam_to_navigation_notifications"
-            app:destination="@id/navigation_notifications" />
+            app:destination="@id/navigation_notifications" >
+            <argument
+                android:name="exam" />
+            <argument
+                android:name="course" />
+            <argument
+                android:name="date" />
+            <argument
+                android:name="location" />
+            <argument
+                android:name="time" />
+        </action>
     </fragment>
 </navigation>

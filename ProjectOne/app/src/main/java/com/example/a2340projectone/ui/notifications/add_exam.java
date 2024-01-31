@@ -69,16 +69,32 @@ public class add_exam extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String examTitle = "bMed";
+
         binding.confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                add_examDirections.ActionAddExamToNavigationNotifications action = add_examDirections.actionAddExamToNavigationNotifications(75);
+                String examTitle = "";
+                String courseTitle = "";
+                String date = "";
+                String location = "";
+                String time = "";
+
                 try {
-                    NavHostFragment.findNavController(add_exam.this).navigate(action);
-                } catch(Exception e) {
-                  //  NavHostFragment.findNavController(add_exam.this).navigate(R.id.action_add_exam_to_navigation_notifications);
+                    examTitle = String.valueOf(binding.examTitle.getText());
+                    courseTitle = String.valueOf(binding.courseTitle.getText());
+                    date = String.valueOf(binding.dateTitle.getText());
+                    location = String.valueOf(binding.locationTitle.getText());
+                    time = String.valueOf(binding.timeTitle.getText());
+                } catch (Exception e) {
+
                 }
+                binding.examTitle.setText("");
+                binding.courseTitle.setText("");
+                binding.dateTitle.setText("");
+                binding.locationTitle.setText("");
+                binding.timeTitle.setText("");
+                ExamList.exams.add(new Exam(examTitle, date, courseTitle, time, location));
+                NavHostFragment.findNavController(add_exam.this).navigate(R.id.action_add_exam_to_navigation_notifications);
 
             }
         });

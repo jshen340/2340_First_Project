@@ -31,8 +31,8 @@ public class ExamAdapter extends RecyclerView.Adapter<ExamVH> {
     public void onBindViewHolder(@NonNull ExamVH holder, int position) {
         holder.examName.setText(items.get(position).getName());
         holder.examCourse.setText(items.get(position).getCourse());
-        holder.examTime.setText(items.get(position).getTime());
-        holder.examLocation.setText(items.get(position).getLocation());
+        holder.examTime.setText(items.get(position).getDate() + " at " + items.get(position).getTime());
+        holder.examLocation.setText("@ " + items.get(position).getLocation());
     }
 
     @Override
