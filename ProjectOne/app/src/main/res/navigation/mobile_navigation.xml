@@ -9,13 +9,36 @@
         android:id="@+id/navigation_home"
         android:name="com.example.a2340projectone.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+        android:id="@+id/action_navigation_home_to_list"
+        app:destination="@id/navigation_dashboard" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.a2340projectone.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_navigation_dashboard_to_add_task"
+            app:destination="@id/add_task"/>
+        <action
+        android:id="@+id/action_add_task_to_navigation_dashboard"
+        app:destination="@id/navigation_dashboard"/>
+        <argument
+        android:name="todoArg"
+        app:argType="integer" />
+</fragment>
+    <fragment
+    android:id="@+id/add_task"
+    android:name="com.example.a2340projectone.ui.dashboard.add_task"
+    android:label="fragment_add_task"
+    tools:layout="@layout/fragment_add_task" >
+    <action
+    android:id="@+id/action_add_task_to_navigation_dashboard"
+    app:destination="@id/navigation_dashboard"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
