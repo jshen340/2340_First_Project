@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.classBtn.setOnClickListener(view2 -> {
-            NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_navigation_home_to_list);
+            NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_navigation_home_to_finalAddTask);
         });
 //        binding.classBtn.setOnClickListener(new View.OnClickListener() {
 //        @Override

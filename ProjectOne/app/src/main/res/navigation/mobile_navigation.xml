@@ -11,8 +11,8 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
-        android:id="@+id/action_navigation_home_to_list"
-        app:destination="@id/navigation_dashboard" />
+            android:id="@+id/action_navigation_home_to_finalAddTask"
+            app:destination="@id/finalAddTask" />
     </fragment>
 
     <fragment
@@ -22,27 +22,21 @@
         tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_navigation_dashboard_to_add_task"
-            app:destination="@id/add_task"/>
-        <action
-        android:id="@+id/action_add_task_to_navigation_dashboard"
-        app:destination="@id/navigation_dashboard"/>
-        <argument
-        android:name="todoArg"
-        app:argType="integer" />
-</fragment>
+            app:destination="@id/add_assignment" />
+    </fragment>
     <fragment
-    android:id="@+id/add_task"
-    android:name="com.example.a2340projectone.ui.dashboard.add_task"
+    android:id="@+id/add_assignment"
+    android:name="com.example.a2340projectone.ui.dashboard.add_assignment"
     android:label="fragment_add_task"
-    tools:layout="@layout/fragment_add_task" >
-    <action
-    android:id="@+id/action_add_task_to_navigation_dashboard"
-    app:destination="@id/navigation_dashboard"/>
+    tools:layout="@layout/fragment_add_assignment" >
+        <action
+            android:id="@+id/action_add_assignment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.a2340projectone.ui.notifications.NotificationsFragment"
+        android:name="com.example.a2340projectone.ui.exams.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" >
         <action
@@ -66,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/add_exam"
-        android:name="com.example.a2340projectone.ui.notifications.add_exam"
+        android:name="com.example.a2340projectone.ui.exams.add_exam"
         android:label="Add Exams"
         tools:layout="@layout/fragment_add_exam" >
         <action
@@ -83,5 +77,23 @@
             <argument
                 android:name="time" />
         </action>
+    </fragment>
+    <fragment
+        android:id="@+id/finalAddTask"
+        android:name="com.example.a2340projectone.ui.todolist.finalAddTask"
+        android:label="fragment_final_add_task"
+        tools:layout="@layout/fragment_final_add_task" >
+        <action
+            android:id="@+id/action_finalAddTask_to_fillInformationScreenTask"
+            app:destination="@id/fillInformationScreenTask" />
+    </fragment>
+    <fragment
+        android:id="@+id/fillInformationScreenTask"
+        android:name="com.example.a2340projectone.ui.todolist.fillInformationScreenTask"
+        android:label="fragment_fill_information_screen_task"
+        tools:layout="@layout/fragment_fill_information_screen_task" >
+        <action
+            android:id="@+id/action_fillInformationScreenTask_to_finalAddTask"
+            app:destination="@id/finalAddTask" />
     </fragment>
 </navigation>

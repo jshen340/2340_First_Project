@@ -1,4 +1,4 @@
-package com.example.a2340projectone.ui.dashboard;
+package com.example.a2340projectone.ui.todolist;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a2340projectone.R;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -46,10 +44,10 @@ class TaskVH extends RecyclerView.ViewHolder {
     private TaskAdapter adapter;
     public TaskVH(@NonNull View itemView) {
         super(itemView);
-        taskName = itemView.findViewById(R.id.subhead);
-        taskDue = itemView.findViewById(R.id.Course);
+        taskName = itemView.findViewById(R.id.task_Title);
+        taskDue = itemView.findViewById(R.id.dueDate);
         taskCourse = itemView.findViewById(R.id.body);
-        itemView.findViewById(R.id.deleteItem).setOnClickListener(view -> {
+        itemView.findViewById(R.id.deleteItem2).setOnClickListener(view -> {
             adapter.items.remove(getAdapterPosition());
             adapter.notifyItemRemoved(getAdapterPosition());
         });

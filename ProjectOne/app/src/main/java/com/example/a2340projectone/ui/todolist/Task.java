@@ -1,4 +1,4 @@
-package com.example.a2340projectone.ui.dashboard;
+package com.example.a2340projectone.ui.todolist;
 
 public class Task {
     private String name, course, due;

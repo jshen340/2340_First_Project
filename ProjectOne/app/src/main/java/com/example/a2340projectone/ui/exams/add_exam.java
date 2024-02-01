@@ -1,4 +1,4 @@
-package com.example.a2340projectone.ui.notifications;
+package com.example.a2340projectone.ui.exams;
 
 import android.os.Bundle;
 
@@ -9,13 +9,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentAddExamBinding;
-import com.example.a2340projectone.databinding.FragmentNotificationsBinding;
-
-import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.

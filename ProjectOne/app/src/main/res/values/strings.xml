@@ -7,6 +7,8 @@
     <string name="delete">x</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="edit">edit</string>
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="exams">Exams</string>
+    <string name="assignments">Assignments</string>
 </resources>

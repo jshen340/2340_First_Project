@@ -1,4 +1,4 @@
-package com.example.a2340projectone.ui.notifications;
+package com.example.a2340projectone.ui.exams;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,11 +51,11 @@ class ExamVH extends RecyclerView.ViewHolder {
     public ExamVH(@NonNull View itemView) {
         super(itemView);
 
-        examName = itemView.findViewById(R.id.text);
-        examCourse = itemView.findViewById(R.id.subhead);
+        examName = itemView.findViewById(R.id.task_Title);
+        examCourse = itemView.findViewById(R.id.task);
         examTime = itemView.findViewById(R.id.body);
-        examLocation = itemView.findViewById(R.id.Course);
-        itemView.findViewById(R.id.deleteItem).setOnClickListener(view -> {
+        examLocation = itemView.findViewById(R.id.dueDate);
+        itemView.findViewById(R.id.deleteItem2).setOnClickListener(view -> {
             adapter.items.remove(getAdapterPosition());
             adapter.notifyItemRemoved(getAdapterPosition());
         });

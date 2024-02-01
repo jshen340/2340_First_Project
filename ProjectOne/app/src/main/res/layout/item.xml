@@ -16,7 +16,7 @@
 
 
         <TextView
-            android:id="@+id/subhead"
+            android:id="@+id/task"
             style="@style/TextAppearance.MaterialComponents.Subtitle2"
             android:layout_width="315dp"
             android:layout_height="0dp"
@@ -36,10 +36,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/subhead" />
+            app:layout_constraintTop_toBottomOf="@+id/task" />
 
         <TextView
-            android:id="@+id/Course"
+            android:id="@+id/dueDate"
             style="@style/TextAppearance.MaterialComponents.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/text"
+                android:id="@+id/task_Title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -71,7 +71,7 @@
                 android:textSize="32sp" />
 
             <Button
-                android:id="@+id/deleteItem"
+                android:id="@+id/deleteItem2"
                 android:layout_width="40dp"
                 android:layout_height="32dp"
                 android:backgroundTint="#FFFFFF"
