@@ -12,4 +12,5 @@
     <string name="exams">Exams</string>
     <string name="assignments">Assignments</string>
     <string name="courses">Courses</string>
+    <string name="to_do_list">To Do List</string>
 </resources>

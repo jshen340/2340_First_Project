@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.example.a2340projectone.MainActivity;
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentFinalAddTaskBinding;
+import com.example.a2340projectone.ui.home.HomeFragment;
 
 public class finalAddTask extends Fragment {
 
@@ -75,8 +76,9 @@ public class finalAddTask extends Fragment {
             recycler.setAdapter(adapter2);
             adapter2.notifyItemInserted(TaskList.tasks.size()-1);
         });
+
         binding.addButtonFinal.setOnClickListener(view2 -> {
-            NavHostFragment.findNavController(finalAddTask.this).navigate(R.id.action_finalAddTask_to_fillInformationScreenTask);
+            NavHostFragment.findNavController(finalAddTask.this).navigate(R.id.action_navigation_todo_to_fillInformationScreenTask);
         });
 
     }

@@ -10,9 +10,6 @@
         android:name="com.example.a2340projectone.ui.home.HomeFragment"
         android:label="Courses"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_navigation_home_to_finalAddTask"
-            app:destination="@id/finalAddTask" />
     </fragment>
 
     <fragment
@@ -32,6 +29,16 @@
         <action
             android:id="@+id/action_add_assignment_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_todo"
+        android:name="com.example.a2340projectone.ui.todolist.finalAddTask"
+        android:label="To Do List"
+        tools:layout="@layout/fragment_final_add_task">
+        <action
+            android:id="@+id/action_navigation_todo_to_fillInformationScreenTask"
+            app:destination="@id/fillInformationScreenTask" />
     </fragment>
 
     <fragment

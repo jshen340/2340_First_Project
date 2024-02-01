@@ -33,19 +33,8 @@ public class HomeFragment extends Fragment {
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.classBtn.setOnClickListener(view2 -> {
-            NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_navigation_home_to_finalAddTask);
-        });
-//        binding.classBtn.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//                Fragment fragment = new DashboardFragment();
-//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction.replace(R.id.nav_host_fragment_activity_main,fragment);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
-//                }
+//        binding.classBtn.setOnClickListener(view2 -> {
+//            NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_navigation_home_to_finalAddTask);
 //        });
     }
 
