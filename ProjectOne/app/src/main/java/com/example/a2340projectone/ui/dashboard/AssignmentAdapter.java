@@ -28,9 +28,9 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentVH>{
 
     @Override
     public void onBindViewHolder(@NonNull AssignmentVH holder, int position) {
-        holder.courseName.setText(items.get(position).getName());
-        holder.taskName.setText(items.get(position).getCourse());
-        holder.taskDue.setText(items.get(position).getDue());
+        holder.courseName.setText("Course: " + items.get(position).getCourse());
+        holder.taskName.setText(items.get(position).getName());
+        holder.taskDue.setText("Due Date: " + items.get(position).getDue());
     }
 
     @Override
@@ -46,9 +46,10 @@ class AssignmentVH extends RecyclerView.ViewHolder {
     private AssignmentAdapter adapter;
     public AssignmentVH(@NonNull View itemView) {
         super(itemView);
+        taskName = itemView.findViewById(R.id.assignment_title);
         courseName = itemView.findViewById(R.id.course_Title);
         taskDue = itemView.findViewById(R.id.assignment_dueDate_Title);
-        taskName = itemView.findViewById(R.id.assignment_title);
+
         itemView.findViewById(R.id.deleteAssignment).setOnClickListener(view -> {
             adapter.items.remove(getAdapterPosition());
             adapter.notifyItemRemoved(getAdapterPosition());

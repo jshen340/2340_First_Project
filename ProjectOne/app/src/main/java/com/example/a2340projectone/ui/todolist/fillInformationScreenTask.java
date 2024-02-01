@@ -54,10 +54,11 @@ public class fillInformationScreenTask extends Fragment {
 
                 }
 
+
                 binding.duedateFill.setText("");
                 binding.categoryFill.setText("");
                 binding.taskFill.setText("");
-                TaskList.tasks.add(new Task(taskTitle, courseTitle, date));
+                TaskList.tasks.add(new Task(taskTitle, date, courseTitle));
                 NavHostFragment.findNavController(fillInformationScreenTask.this).navigate(R.id.action_fillInformationScreenTask_to_finalAddTask);
 
 

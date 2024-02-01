@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentAddExamBinding;
+import com.example.a2340projectone.ui.todolist.Task;
+import com.example.a2340projectone.ui.todolist.TaskList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -90,6 +92,7 @@ public class add_exam extends Fragment {
                 binding.locationTitle.setText("");
                 binding.timeTitle.setText("");
                 ExamList.exams.add(new Exam(examTitle, date, courseTitle, time, location));
+                TaskList.tasks.add(new Exam(examTitle, date, courseTitle, time, location));
                 NavHostFragment.findNavController(add_exam.this).navigate(R.id.action_add_exam_to_navigation_notifications);
 
             }

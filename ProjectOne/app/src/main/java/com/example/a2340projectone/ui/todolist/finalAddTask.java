@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.a2340projectone.MainActivity;
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentFinalAddTaskBinding;
 
@@ -43,6 +45,7 @@ public class finalAddTask extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentFinalAddTaskBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
         return root;
     }
 
@@ -54,9 +57,30 @@ public class finalAddTask extends Fragment {
         TaskAdapter adapter = new TaskAdapter(TaskList.tasks);
         recycler.setAdapter(adapter);
         adapter.notifyItemInserted(TaskList.tasks.size()-1);
+        binding.sortDateButton.setOnClickListener( view2 -> {
+            TaskList.dateSorted();
+            TaskAdapter adapter2 = new TaskAdapter(TaskList.tasks);
+            recycler.setAdapter(adapter2);
+            adapter2.notifyItemInserted(TaskList.tasks.size()-1);
+        });
+        binding.categorySort.setOnClickListener( view2 -> {
+            TaskList.categorySorted();
+            TaskAdapter adapter2 = new TaskAdapter(TaskList.tasks);
+            recycler.setAdapter(adapter2);
+            adapter2.notifyItemInserted(TaskList.tasks.size()-1);
+        });
+        binding.completedSort.setOnClickListener( view2 -> {
+            TaskList.completeSort();
+            TaskAdapter adapter2 = new TaskAdapter(TaskList.tasks);
+            recycler.setAdapter(adapter2);
+            adapter2.notifyItemInserted(TaskList.tasks.size()-1);
+        });
         binding.addButtonFinal.setOnClickListener(view2 -> {
             NavHostFragment.findNavController(finalAddTask.this).navigate(R.id.action_finalAddTask_to_fillInformationScreenTask);
         });
 
     }
+
+
+
 }

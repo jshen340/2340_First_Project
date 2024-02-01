@@ -1,10 +1,13 @@
 package com.example.a2340projectone.ui.exams;
 
+import com.example.a2340projectone.ui.todolist.Task;
+import com.example.a2340projectone.ui.todolist.SortType;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class Exam {
+public class Exam extends Task {
     private String name;
     public String date;
     private String course;
@@ -30,7 +33,7 @@ public class Exam {
         return name;
     }
 
-    public String getDate() {
+    public String getDue() {
         return date;
     }
 
@@ -55,7 +58,7 @@ public class Exam {
     }
 }
 
-class DateValidatorUsingDateFormat implements DateValidator {
+ class DateValidatorUsingDateFormat implements DateValidator {
     private String dateFormat = "MM/dd/yyyy";
 
     @Override

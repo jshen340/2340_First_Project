@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentAddAssignmentBinding;
+import com.example.a2340projectone.ui.todolist.Task;
+import com.example.a2340projectone.ui.todolist.TaskList;
 
 public class add_assignment extends Fragment {
     private FragmentAddAssignmentBinding binding;
@@ -57,7 +59,8 @@ public class add_assignment extends Fragment {
             binding.assignmentNameFill.setText("");
             binding.assignmentCourseFill.setText("");
             binding.assignmentDuedateFill.setText("");
-            AssignmentList.assignments.add(new Assignment(taskTitle, courseTitle, date));
+            AssignmentList.assignments.add(new Assignment(taskTitle, date, courseTitle));
+            TaskList.tasks.add(new Assignment(taskTitle + " (Assignment)", date, courseTitle));
             NavHostFragment.findNavController(add_assignment.this).navigate(R.id.action_add_assignment_to_navigation_dashboard);
 
 

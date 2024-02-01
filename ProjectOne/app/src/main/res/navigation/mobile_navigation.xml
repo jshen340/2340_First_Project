@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.a2340projectone.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:label="Courses"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_finalAddTask"
@@ -25,10 +25,10 @@
             app:destination="@id/add_assignment" />
     </fragment>
     <fragment
-    android:id="@+id/add_assignment"
-    android:name="com.example.a2340projectone.ui.dashboard.add_assignment"
-    android:label="fragment_add_task"
-    tools:layout="@layout/fragment_add_assignment" >
+        android:id="@+id/add_assignment"
+        android:name="com.example.a2340projectone.ui.dashboard.add_assignment"
+        android:label="Add Assignment"
+        tools:layout="@layout/fragment_add_assignment">
         <action
             android:id="@+id/action_add_assignment_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
@@ -81,8 +81,8 @@
     <fragment
         android:id="@+id/finalAddTask"
         android:name="com.example.a2340projectone.ui.todolist.finalAddTask"
-        android:label="fragment_final_add_task"
-        tools:layout="@layout/fragment_final_add_task" >
+        android:label="To Do List"
+        tools:layout="@layout/fragment_final_add_task">
         <action
             android:id="@+id/action_finalAddTask_to_fillInformationScreenTask"
             app:destination="@id/fillInformationScreenTask" />
@@ -90,10 +90,12 @@
     <fragment
         android:id="@+id/fillInformationScreenTask"
         android:name="com.example.a2340projectone.ui.todolist.fillInformationScreenTask"
-        android:label="fragment_fill_information_screen_task"
-        tools:layout="@layout/fragment_fill_information_screen_task" >
+        android:label="Add Task"
+        tools:layout="@layout/fragment_fill_information_screen_task">
         <action
             android:id="@+id/action_fillInformationScreenTask_to_finalAddTask"
-            app:destination="@id/finalAddTask" />
+            app:destination="@id/finalAddTask"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>
