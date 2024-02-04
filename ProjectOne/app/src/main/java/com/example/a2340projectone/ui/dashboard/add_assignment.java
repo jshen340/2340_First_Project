@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentAddAssignmentBinding;
@@ -47,23 +48,21 @@ public class add_assignment extends Fragment {
                 String taskTitle = "";
                 String courseTitle ="";
                 String date = "";
-
-
-                try {
-                    taskTitle = String.valueOf(binding.assignmentNameFill.getText());
-                    courseTitle = String.valueOf(binding.assignmentCourseFill.getText());
+                taskTitle = String.valueOf(binding.assignmentNameFill.getText());
+                courseTitle = String.valueOf(binding.assignmentCourseFill.getText());
+                Assignment tobeAdded = new Assignment(taskTitle, courseTitle);
+                if (tobeAdded.checkDate(String.valueOf(binding.assignmentDuedateFill.getText()))) {
                     date = String.valueOf(binding.assignmentDuedateFill.getText());
-                } catch (Exception e) {
-
+                    binding.assignmentNameFill.setText("");
+                    binding.assignmentCourseFill.setText("");
+                    binding.assignmentDuedateFill.setText("");
+                    tobeAdded.setDate(date);
+                    AssignmentList.assignments.add(tobeAdded);
+                    NavHostFragment.findNavController(add_assignment.this).navigate(R.id.action_add_assignment_to_navigation_dashboard);
+                } else {
+                    Toast myToast = Toast.makeText(getActivity(), "Invalid Date Entered! Date should be entered MM-DD-YYYY", Toast.LENGTH_SHORT);
+                    myToast.show();
                 }
-            binding.assignmentNameFill.setText("");
-            binding.assignmentCourseFill.setText("");
-            binding.assignmentDuedateFill.setText("");
-            AssignmentList.assignments.add(new Assignment(taskTitle, date, courseTitle));
-            TaskList.tasks.add(new Assignment(taskTitle + " (Assignment)", date, courseTitle));
-            NavHostFragment.findNavController(add_assignment.this).navigate(R.id.action_add_assignment_to_navigation_dashboard);
-
-
         }
     });
     }

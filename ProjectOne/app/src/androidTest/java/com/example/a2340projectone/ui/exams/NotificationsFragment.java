@@ -20,7 +20,7 @@ public class NotificationsFragment extends Fragment {
 
     private FragmentNotificationsBinding binding;
 
-    Exam[] data = {new Exam("Hi", "Whats up", "Hello", "I am", "LOL")};
+    Exam[] data = {new Exam("Hi", "Hello", "I am", "LOL")};
     int counter = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

@@ -3,15 +3,31 @@ package com.example.a2340projectone.ui.dashboard;
 import com.example.a2340projectone.Doable;
 import com.example.a2340projectone.ui.todolist.Task;
 
-public class Assignment extends Task {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Assignment implements Comparable<Assignment> {
     private String name, course, due;
+
+    Date dueDate;
     private boolean complete;
 
-    public Assignment(String name, String due, String course) {
+    public Assignment(String name, String course) {
         this.name = name;
-        this.due = due;
         this.course = course;
 
+    }
+
+    public boolean checkDate(String input) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        dateFormat.setLenient(false);
+        try {
+            dateFormat.parse(input.trim());
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
     }
 
     public String getName() {
@@ -26,8 +42,21 @@ public class Assignment extends Task {
     public String getDue() {
         return due;
     }
+    public void setDate(String date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        try {
+            this.dueDate = dateFormat.parse(date);
+        } catch (ParseException e) {
+
+        }
+        this.due = date;
+    }
 
     @Override
+    public int compareTo(Assignment other) {
+        return this.dueDate.compareTo(other.dueDate);
+    }
+
     public boolean isComplete() {
         return complete;
     }

@@ -7,22 +7,16 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class Exam extends Task {
+public class Exam {
     private String name;
-    public String date;
+    public String dueDate;
     private String course;
     private String time;
     private String location;
 
 
 
-    public Exam(String name, String dateToChange, String course, String time, String location) {
-        DateValidator validator = new DateValidatorUsingDateFormat();
-        if (validator.isValid(dateToChange)) {
-            date = dateToChange;
-        } else {
-            date = "Wrong date buddy";
-        }
+    public Exam(String name, String course, String time, String location) {
         this.name = name;
         this.course = course;
         this.time = time;
@@ -33,12 +27,41 @@ public class Exam extends Task {
         return name;
     }
 
-    public String getDue() {
-        return date;
+    public String getDueDate() {
+        return dueDate;
     }
 
     public String getCourse() {
         return course;
+    }
+
+    public void setDate(String date) {
+        this.dueDate = date;
+    }
+
+    public boolean checkDate(String input) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        dateFormat.setLenient(false);
+        try {
+            dateFormat.parse(input.trim());
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
+    public boolean checkTime(String input) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        dateFormat.setLenient(false);
+        try {
+            dateFormat.parse(input.trim());
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getTime() {
@@ -58,18 +81,3 @@ public class Exam extends Task {
     }
 }
 
- class DateValidatorUsingDateFormat implements DateValidator {
-    private String dateFormat = "MM/dd/yyyy";
-
-    @Override
-    public boolean isValid(String dateStr) {
-        DateFormat sdf = new SimpleDateFormat(this.dateFormat);
-        sdf.setLenient(false);
-        try {
-            sdf.parse(dateStr);
-        } catch (ParseException e) {
-            return false;
-        }
-        return true;
-    }
-}
