@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_navigation_dashboard_to_add_task"
             app:destination="@id/add_assignment" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_edit_task"
+            app:destination="@id/edit_assignment" />
     </fragment>
     <fragment
         android:id="@+id/add_assignment"
@@ -28,6 +31,15 @@
         tools:layout="@layout/fragment_add_assignment">
         <action
             android:id="@+id/action_add_assignment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
+    <fragment
+        android:id="@+id/edit_assignment"
+        android:name="com.example.a2340projectone.ui.dashboard.edit_assignment"
+        android:label="Edit Assignment"
+        tools:layout="@layout/fragment_edit_assignment">
+        <action
+            android:id="@+id/action_edit_assignment_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
     </fragment>
 

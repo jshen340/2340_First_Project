@@ -18,26 +18,27 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_assignment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="415dp"
+        android:layout_height="675dp"
         android:layout_marginTop="10dp"
+        android:scrollbars="vertical"
+        android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/assignmentTextView"
         app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="2dp" />
 
     <Button
         android:id="@+id/addAssignmentInitial"
         android:layout_width="49dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="36dp"
         android:text="@string/add"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView_assignment"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintHorizontal_bias="0.861"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintVertical_bias="0.883" />
 
     <TextView
         android:id="@+id/assignmentTextView"

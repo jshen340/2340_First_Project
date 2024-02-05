@@ -2,6 +2,7 @@ package com.example.a2340projectone;
 
 import android.os.Bundle;
 
+import com.example.a2340projectone.ui.dashboard.RecyclerViewInterface;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +13,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.a2340projectone.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewInterface {
 
     private ActivityMainBinding binding;
 
@@ -34,4 +35,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    @Override
+    public void onItemClick(int position) {
+
+    }
 }
