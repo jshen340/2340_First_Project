@@ -38,7 +38,7 @@ public class NotificationsFragment extends Fragment {
 
         RecyclerView recycler = binding.recyclerView;
         recycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        ExamAdapter adapter = new ExamAdapter(items);
+        ExamAdapter adapter = new ExamAdapter(items, requireContext());
         recycler.setAdapter(adapter);
 
         binding.addButton.setOnClickListener(view -> {
