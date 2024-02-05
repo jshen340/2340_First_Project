@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.example.a2340projectone.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_coursedash"
+            app:destination="@id/coursedash" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +26,27 @@
         android:name="com.example.a2340projectone.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/coursedash"
+        android:name="com.example.a2340projectone.coursedash"
+        android:label="fragment_coursedash"
+        tools:layout="@layout/fragment_coursedash" >
+        <action
+            android:id="@+id/action_coursedash_to_addCourse"
+            app:destination="@id/addCourse" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCourse"
+        android:name="com.example.a2340projectone.AddCourse"
+        android:label="fragment_add_course"
+        tools:layout="@layout/fragment_add_course" >
+        <action
+            android:id="@+id/action_addCourse_to_coursedash"
+            app:destination="@id/coursedash" />
+    </fragment>
+    <fragment
+        android:id="@+id/coursedisplay"
+        android:name="com.example.a2340projectone.coursedisplay"
+        android:label="fragment_coursedisplay"
+        tools:layout="@layout/fragment_coursedisplay" />
 </navigation>
