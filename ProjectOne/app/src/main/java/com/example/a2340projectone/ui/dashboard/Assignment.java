@@ -13,9 +13,10 @@ public class Assignment implements Comparable<Assignment> {
     Date dueDate;
     private boolean complete;
 
-    public Assignment(String name, String course) {
+    public Assignment(String name, String course, String dueDate) {
         this.name = name;
         this.course = course;
+        this.due = due;
 
     }
 

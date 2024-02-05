@@ -4,12 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.add_assignment"
     android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="377dp"
+        android:layout_height="570dp">
 
         <TextView
             android:id="@+id/textView2"
@@ -66,58 +65,54 @@
 
         <EditText
             android:id="@+id/assignment_name_fill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="361dp"
+            android:layout_height="37dp"
             android:ems="10"
             android:hint="Enter name here"
             android:inputType="text"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/assignment_course_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.125"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/assignment_title"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintVertical_bias="0.285" />
 
         <EditText
             android:id="@+id/assignment_course_fill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="240dp"
+            android:layout_width="361dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="244dp"
             android:ems="10"
             android:hint="Enter course name"
             android:inputType="text"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.125"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/assignment_duedate_fill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="361dp"
+            android:layout_height="37dp"
             android:ems="10"
             android:hint="MM-DD-YYYY"
             android:inputType="text"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/add_assignment_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.125"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/assignemt_duedate_title"
-            app:layout_constraintVertical_bias="0.132" />
+            app:layout_constraintVertical_bias="0.136" />
 
         <Button
             android:id="@+id/add_assignment_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="96dp"
             android:text="Add Assignment"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.689" />
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,12 +15,12 @@ public class Exam {
     private String location;
 
 
-
-    public Exam(String name, String course, String time, String location) {
+    public Exam(String name, String course, String time, String location, String dueDate) {
         this.name = name;
         this.course = course;
         this.time = time;
         this.location = location;
+        this.dueDate = dueDate;
     }
 
     public String getName() {
@@ -49,6 +49,7 @@ public class Exam {
         }
         return true;
     }
+
     public boolean checkTime(String input) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
         dateFormat.setLenient(false);
@@ -65,15 +66,16 @@ public class Exam {
     }
 
     public String getTime() {
-        if (Integer.parseInt(time.substring(0,2)) < 12 && Integer.parseInt(time.substring(0,2)) > 7) {
+        if (time.length() == 0) {
+            time += "";
+        } else if (Integer.parseInt(time.substring(0, 2)) < 12 && Integer.parseInt(time.substring(0, 2)) > 7) {
             time += " AM";
-        } else if (Integer.parseInt(time.substring(0,2)) >= 1 && Integer.parseInt(time.substring(0,2)) < 7) {
+        } else if (Integer.parseInt(time.substring(0, 2)) >= 1 && Integer.parseInt(time.substring(0, 2)) < 7) {
+            time += " PM";
+        } else if (Integer.parseInt(time.substring(0, 2)) == 12) {
             time += " PM";
         }
-        else if (Integer.parseInt(time.substring(0,2)) == 12) {
-            time += " PM";
-        }
-            return time;
+        return time;
     }
 
     public String getLocation() {
