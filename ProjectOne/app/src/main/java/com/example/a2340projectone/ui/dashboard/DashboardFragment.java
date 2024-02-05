@@ -30,51 +30,29 @@ public class DashboardFragment extends Fragment {
     ArrayList<Assignment> items = new ArrayList<>();
     AssignmentAdapter adapter;
     RecyclerView recyclerView;
-
     int counter = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
-
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         RecyclerView recycler = root.findViewById(R.id.recyclerView_assignment);
 
-        items.add(new Assignment("name", "course", "date"));
+//        items.add(new Assignment("name", "course", "date"));
 
         recycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
         adapter = new AssignmentAdapter(requireContext(), items);
         recycler.setAdapter(adapter);
-
         return root;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        RecyclerView recycler = view.findViewById(R.id.recyclerView_assignment);
-//
-//        items.add(new Assignment("name", "course", "date"));
-//
-//        recycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
-//        adapter = new AssignmentAdapter(requireContext(), items);
-//        recycler.setAdapter(adapter);
-//        adapter = new AssignmentAdapter(items, new AssignmentAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(Assignment assignments) {
-//                NavHostFragment.findNavController(DashboardFragment.this).navigate(R.id.action_navigation_dashboard_to_add_task);
-//            }
-//        });
-
-//        Assignment assignment = new Assignment("name", "course", "date");
-//        items.add(new Assignment("name", "course", "date"));
-//        addTask = view.findViewById(R.id.addAssignmentInitial);
-
         recyclerView = view.findViewById(R.id.recyclerView_assignment);
         adapter = new AssignmentAdapter(requireContext(), items);
-
         binding.addAssignmentInitial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,6 +85,7 @@ public class DashboardFragment extends Fragment {
                     }
                 });
                 dialog.show();
+                dialog.getWindow().setLayout(1000, 1500);
             }
         });
     }

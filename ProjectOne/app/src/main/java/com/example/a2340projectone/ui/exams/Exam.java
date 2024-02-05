@@ -21,7 +21,7 @@ public class Exam extends Task {
         if (validator.isValid(dateToChange)) {
             date = dateToChange;
         } else {
-            date = "Wrong date buddy";
+            date = " INVALID DATE";
         }
         this.name = name;
         this.course = course;
@@ -42,7 +42,9 @@ public class Exam extends Task {
     }
 
     public String getTime() {
-        if (Integer.parseInt(time.substring(0,2)) < 12 && Integer.parseInt(time.substring(0,2)) > 7) {
+        if (time.length() == 0) {
+            time += "";
+        } else if (Integer.parseInt(time.substring(0,2)) < 12 && Integer.parseInt(time.substring(0,2)) > 7) {
             time += " AM";
         } else if (Integer.parseInt(time.substring(0,2)) >= 1 && Integer.parseInt(time.substring(0,2)) < 7) {
             time += " PM";

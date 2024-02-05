@@ -76,13 +76,10 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
                         dialog.dismiss();
                     }
                 });
-
                 dialog.show();
+                dialog.getWindow().setLayout(1000, 1500);
             }
         });
-//        holder.itemView.findViewById(R.id.editAssignment).setOnClickListener(view -> {
-//            listener.onItemClick(items.get(position));
-//        });
     }
 
     @Override
@@ -106,12 +103,5 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
             });
         }
     }
-    public interface OnItemClickListener {
-        void onItemClick(Assignment assignment);
-    }
-
-//    public void setOnItemClickListener(OnItemClickListener listener) {
-//        this.listener =listener;
-//    }
 }
 
