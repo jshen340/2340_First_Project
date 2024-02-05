@@ -86,33 +86,32 @@ public class add_exam extends Fragment {
                 location = String.valueOf(binding.locationTitle.getText());
                 time = String.valueOf(binding.timeTitle.getText());
 
-                Exam tobeAdded = new Exam(examTitle, courseTitle, time, location);
-                if (tobeAdded.checkDate(String.valueOf(binding.dateTitle.getText())) && tobeAdded.checkTime(String.valueOf(binding.timeTitle.getText()))) {
-                    binding.examTitle.setText("");
-                    binding.courseTitle.setText("");
-                    binding.dateTitle.setText("");
-                    binding.locationTitle.setText("");
-                    binding.timeTitle.setText("");
-                    NavHostFragment.findNavController(add_exam.this).navigate(R.id.action_add_exam_to_navigation_notifications);
-                }
+                Exam tobeAdded = new Exam(examTitle, courseTitle, location);
 
                 if (tobeAdded.checkDate(String.valueOf(binding.dateTitle.getText()))) {
                     date = String.valueOf(binding.dateTitle.getText());
-
                     tobeAdded.setDate(date);
-                    ExamList.exams.add(tobeAdded);
                 } else {
                     Toast myToast = Toast.makeText(getActivity(), "Invalid Date Entered! Date should be entered MM-DD-YYYY", Toast.LENGTH_SHORT);
                     myToast.show();
                 }
 
                 if (tobeAdded.checkTime(String.valueOf(binding.timeTitle.getText()))) {
-                    time = String.valueOf(binding.dateTitle.getText());
+                    time = String.valueOf(binding.timeTitle.getText());
                     tobeAdded.setTime(time);
-                    ExamList.exams.add(tobeAdded);
+
                 } else {
                     Toast myToast = Toast.makeText(getActivity(), "Invalid Time Entered! Time should be entered HH:MM", Toast.LENGTH_SHORT);
                     myToast.show();
+                }
+                if (tobeAdded.checkDate(String.valueOf(binding.dateTitle.getText())) && tobeAdded.checkTime(String.valueOf(binding.timeTitle.getText()))) {
+                    binding.examTitle.setText("");
+                    binding.courseTitle.setText("");
+                    binding.dateTitle.setText("");
+                    binding.locationTitle.setText("");
+                    binding.timeTitle.setText("");
+                    ExamList.exams.add(tobeAdded);
+                    NavHostFragment.findNavController(add_exam.this).navigate(R.id.action_add_exam_to_navigation_notifications);
                 }
             }
         });

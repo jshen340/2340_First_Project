@@ -1,6 +1,7 @@
 package com.example.a2340projectone.ui.todolist;
 
 import com.example.a2340projectone.Doable;
+import com.example.a2340projectone.ui.dashboard.Assignment;
 import com.example.a2340projectone.ui.exams.DateValidator;
 
 import java.text.DateFormat;
@@ -11,14 +12,14 @@ import java.util.Locale;
 
 public class Task implements Doable, Comparable<Task> {
     private String name, course, due;
+    Date dueDate;
 
     public Task() {
 
     }
     private boolean complete;
-    public Task(String name, String due, String course) {
+    public Task(String name, String course) {
         this.name = name;
-        this.due = due;
         this.course = course;
         complete = false;
 
@@ -49,17 +50,31 @@ public class Task implements Doable, Comparable<Task> {
         return complete;
     }
 
-    @Override
-    public int compareTo(Task t) {
-        if (this.isComplete() == !t.isComplete()) {
-            return -1;
+    public boolean checkDate(String input) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        dateFormat.setLenient(false);
+        try {
+            dateFormat.parse(input.trim());
+        } catch (ParseException e) {
+            return false;
         }
-        if (!this.isComplete() == t.isComplete()) {
-            return 1;
-        }
-        return 0;
+        return true;
     }
 
+    public void setDate(String date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        try {
+            this.dueDate = dateFormat.parse(date);
+        } catch (ParseException e) {
+
+        }
+        this.due = date;
+    }
+
+    @Override
+    public int compareTo(Task other) {
+        return this.dueDate.compareTo(other.dueDate);
+    }
 
     public void toggle() {
         complete = !complete;

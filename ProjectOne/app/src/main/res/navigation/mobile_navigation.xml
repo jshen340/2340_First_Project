@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.a2340projectone.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="Assignments"
         tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_navigation_dashboard_to_add_task"
@@ -35,11 +35,7 @@
         android:id="@+id/navigation_todo"
         android:name="com.example.a2340projectone.ui.todolist.finalAddTask"
         android:label="To Do List"
-        tools:layout="@layout/fragment_final_add_task">
-        <action
-            android:id="@+id/action_navigation_todo_to_fillInformationScreenTask"
-            app:destination="@id/fillInformationScreenTask" />
-    </fragment>
+        tools:layout="@layout/fragment_final_add_task"/>
 
     <fragment
         android:id="@+id/navigation_notifications"

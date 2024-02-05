@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentFillInformationScreenTaskBinding;
@@ -45,21 +46,26 @@ public class fillInformationScreenTask extends Fragment {
                 String courseTitle ="";
                 String date = "";
 
+                taskTitle = String.valueOf(binding.taskFill.getText());
+                courseTitle = String.valueOf(binding.categoryFill.getText());
+                date = String.valueOf(binding.duedateFill.getText());
 
-                try {
-                    taskTitle = String.valueOf(binding.taskFill.getText());
-                    courseTitle = String.valueOf(binding.categoryFill.getText());
-                    date = String.valueOf(binding.duedateFill.getText());
-                } catch (Exception e) {
-
+                Task toBeAdded = new Task(taskTitle, courseTitle);
+                if (toBeAdded.checkDate(String.valueOf(binding.duedateFill.getText()))) {
+                    toBeAdded.setDate(binding.duedateFill.getText().toString());
+                    TaskList.tasks.add(toBeAdded);
+                    binding.duedateFill.setText("");
+                    binding.categoryFill.setText("");
+                    binding.taskFill.setText("");
+                    NavHostFragment.findNavController(fillInformationScreenTask.this).navigate(R.id.action_fillInformationScreenTask_to_finalAddTask);
+                } else {
+                    Toast myToast = Toast.makeText(getActivity(), "Invalid Date Entered! Date should be entered MM-DD-YYYY", Toast.LENGTH_SHORT);
+                    myToast.show();
                 }
 
 
-                binding.duedateFill.setText("");
-                binding.categoryFill.setText("");
-                binding.taskFill.setText("");
-                TaskList.tasks.add(new Task(taskTitle, date, courseTitle));
-                NavHostFragment.findNavController(fillInformationScreenTask.this).navigate(R.id.action_fillInformationScreenTask_to_finalAddTask);
+
+
 
 
             }

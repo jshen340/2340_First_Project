@@ -16,29 +16,14 @@ import android.view.ViewGroup;
 import com.example.a2340projectone.MainActivity;
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentFinalAddTaskBinding;
+import com.example.a2340projectone.ui.dashboard.AssignmentList;
+import com.example.a2340projectone.ui.exams.ExamList;
 import com.example.a2340projectone.ui.home.HomeFragment;
 
 public class finalAddTask extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private FragmentFinalAddTaskBinding binding;
 
-    public finalAddTask() {
-        // Required empty public constructor
-    }
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,31 +41,38 @@ public class finalAddTask extends Fragment {
         RecyclerView recycler = view.findViewById(R.id.recyclerView_todo);
         recycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
         TaskAdapter adapter = new TaskAdapter(TaskList.tasks);
+        TaskAdapter adapter1 = new TaskAdapter(TaskList.completedTasks);
         recycler.setAdapter(adapter);
         adapter.notifyItemInserted(TaskList.tasks.size()-1);
         binding.sortDateButton.setOnClickListener( view2 -> {
             TaskList.dateSorted();
-            TaskAdapter adapter2 = new TaskAdapter(TaskList.tasks);
-            recycler.setAdapter(adapter2);
-            adapter2.notifyItemInserted(TaskList.tasks.size()-1);
+            adapter.notifyDataSetChanged();
         });
         binding.categorySort.setOnClickListener( view2 -> {
             TaskList.categorySorted();
-            TaskAdapter adapter2 = new TaskAdapter(TaskList.tasks);
-            recycler.setAdapter(adapter2);
-            adapter2.notifyItemInserted(TaskList.tasks.size()-1);
+            adapter.notifyDataSetChanged();;
         });
         binding.completedSort.setOnClickListener( view2 -> {
-            TaskList.completeSort();
-            TaskAdapter adapter2 = new TaskAdapter(TaskList.tasks);
-            recycler.setAdapter(adapter2);
-            adapter2.notifyItemInserted(TaskList.tasks.size()-1);
+            if (TaskList.completedListOn) {
+                recycler.setAdapter(adapter1);
+                TaskList.completedListOn = !TaskList.completedListOn;
+                adapter1.notifyItemInserted(AssignmentList.completedAssignments.size()-1);
+            } else {
+                recycler.setAdapter(adapter);
+                TaskList.completedListOn = !TaskList.completedListOn;
+                adapter.notifyItemInserted(AssignmentList.assignments.size()-1);
+            };
         });
 
         binding.addButtonFinal.setOnClickListener(view2 -> {
-            NavHostFragment.findNavController(finalAddTask.this).navigate(R.id.action_navigation_todo_to_fillInformationScreenTask);
+            NavHostFragment.findNavController(finalAddTask.this).navigate(R.id.fillInformationScreenTask);
         });
 
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
 

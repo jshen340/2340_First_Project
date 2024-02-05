@@ -16,7 +16,7 @@ public class Exam {
 
 
 
-    public Exam(String name, String course, String time, String location) {
+    public Exam(String name, String course, String location) {
         this.name = name;
         this.course = course;
         this.time = time;
