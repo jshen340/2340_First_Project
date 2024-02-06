@@ -1,9 +1,12 @@
 package com.example.a2340projectone.ui.exams;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -56,8 +59,21 @@ class ExamVH extends RecyclerView.ViewHolder {
         examTime = itemView.findViewById(R.id.body);
         examLocation = itemView.findViewById(R.id.dueDate);
         itemView.findViewById(R.id.deleteItem2).setOnClickListener(view -> {
-            adapter.items.remove(getAdapterPosition());
-            adapter.notifyItemRemoved(getAdapterPosition());
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+            alertDialogBuilder.setTitle("Delete Exam");
+            alertDialogBuilder.setMessage("Are you sure you want to delete this item?");
+
+            alertDialogBuilder.setPositiveButton("Delete", (dialog, which) -> {
+                Toast.makeText(view.getContext(), "Deleted Item Successfully", Toast.LENGTH_SHORT);
+                adapter.items.remove(getAdapterPosition());
+                adapter.notifyItemRemoved(getAdapterPosition());
+            });
+
+            alertDialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
+            });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
         });
     }
 

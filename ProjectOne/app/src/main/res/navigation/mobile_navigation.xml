@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/coursedash">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -100,5 +100,23 @@
             app:destination="@id/finalAddTask"
             app:launchSingleTop="false"
             app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/coursedash"
+        android:name="com.example.a2340projectone.ui.home.coursedash"
+        android:label="Courses"
+        tools:layout="@layout/fragment_coursedash" >
+        <action
+            android:id="@+id/action_coursedash_to_addCourse"
+            app:destination="@id/addCourse" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCourse"
+        android:name="com.example.a2340projectone.ui.home.AddCourse"
+        android:label="Add Your Course"
+        tools:layout="@layout/fragment_add_course" >
+        <action
+            android:id="@+id/action_addCourse_to_coursedash"
+            app:destination="@id/coursedash" />
     </fragment>
 </navigation>

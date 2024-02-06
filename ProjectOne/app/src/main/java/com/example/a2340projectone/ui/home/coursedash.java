@@ -1,4 +1,4 @@
-package com.example.a2340projectone;
+package com.example.a2340projectone.ui.home;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -11,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentCoursedashBinding;
+import com.example.a2340projectone.ui.exams.ExamList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,8 +55,8 @@ public class coursedash extends Fragment {
         recycler.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         // Initialize the items list and pass it to the adapter
-        items = new ArrayList<>(CourseList.courses);
-        CourseAdapter adapter = new CourseAdapter(requireContext(), items);
+        CourseAdapter adapter = new CourseAdapter(CourseList.courses);
         recycler.setAdapter(adapter);
+        adapter.notifyItemInserted(CourseList.courses.size()-1);
     }
 }

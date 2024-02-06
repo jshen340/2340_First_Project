@@ -1,12 +1,12 @@
-package com.example.a2340projectone;
+package com.example.a2340projectone.ui.home;
 
-
-import com.example.a2340projectone.Courses;
 
 import java.util.ArrayList;
 
 public class CourseList {
     public static ArrayList<Courses> courses = new ArrayList<>();
+
+    public static ArrayList<String> coursesAvailable = new ArrayList<>();
 
 
 }

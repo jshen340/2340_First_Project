@@ -52,6 +52,10 @@ public class Assignment implements Comparable<Assignment> {
         this.due = date;
     }
 
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
     @Override
     public int compareTo(Assignment other) {
         return this.dueDate.compareTo(other.dueDate);

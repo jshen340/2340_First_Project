@@ -1,7 +1,11 @@
-package com.example.a2340projectone;
+package com.example.a2340projectone.ui.home;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class Courses {
-    private String coursename;
+    private String courseName;
     private String instructor;
     private String day;
     private String building;
@@ -12,10 +16,12 @@ public class Courses {
 
     private String section;
 
+    private boolean[] daysClassHeld = new boolean[5];
 
 
-    public Courses(String coursename, String instructor, String day, String timestart,String timeend, String section, String building, String room) {
-        this.coursename = coursename;
+
+    public Courses(String coursename, String instructor, String day, String section, String building, String room) {
+        this.courseName = coursename;
         this.instructor = instructor;
         this.day = day;
         this.timestart = timestart;
@@ -26,8 +32,8 @@ public class Courses {
     }
 
     // Getter methods
-    public String getCoursename() {
-        return coursename;
+    public String getCourseName() {
+        return courseName;
     }
 
     public String getInstructor() {
@@ -36,6 +42,10 @@ public class Courses {
 
     public String getDay() {
         return day;
+    }
+
+    public boolean[] getDaysClassHeld() {
+        return daysClassHeld;
     }
 
     public String getTimeStart() {
@@ -57,8 +67,8 @@ public class Courses {
     }
 
     // Setter methods
-    public void setCoursename(String coursename) {
-        this.coursename = coursename;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public void setInstructor(String instructor) {
@@ -69,9 +79,25 @@ public class Courses {
         this.day = day;
     }
 
-//   // public void setTime(String time) {
-//        this.time = time;
-//    }
+  public boolean checkTime(String input) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        dateFormat.setLenient(false);
+        try {
+            dateFormat.parse(input.trim());
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public void setTimestart(String time) {
+        this.timestart = time;
+    }
+
+    public void setTimeend(String time) {
+        this.timeend = time;
+    }
+
 
     public void setTimeStart(String timestart) {
         this.timestart = timestart;

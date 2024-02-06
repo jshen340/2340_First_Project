@@ -9,12 +9,18 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.a2340projectone.MainActivity;
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentAddAssignmentBinding;
+import com.example.a2340projectone.ui.home.CourseList;
 import com.example.a2340projectone.ui.todolist.Task;
 import com.example.a2340projectone.ui.todolist.TaskList;
+
+import java.util.ArrayList;
 
 public class add_assignment extends Fragment {
     private FragmentAddAssignmentBinding binding;
@@ -42,20 +48,26 @@ public class add_assignment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, CourseList.coursesAvailable);
+        Spinner spinner = binding.assignmentCourseFill;
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
         binding.addAssignmentButton.setOnClickListener(new View.OnClickListener() {
         @Override
             public void onClick(View view) {
                 String taskTitle = "";
                 String courseTitle ="";
                 String date = "";
+
+
                 taskTitle = String.valueOf(binding.assignmentNameFill.getText());
-                courseTitle = String.valueOf(binding.assignmentCourseFill.getText());
                 Assignment tobeAdded = new Assignment(taskTitle, courseTitle);
                 if (tobeAdded.checkDate(String.valueOf(binding.assignmentDuedateFill.getText()))) {
                     date = String.valueOf(binding.assignmentDuedateFill.getText());
                     binding.assignmentNameFill.setText("");
-                    binding.assignmentCourseFill.setText("");
                     binding.assignmentDuedateFill.setText("");
+                    tobeAdded.setCourse((String) spinner.getSelectedItem());
                     tobeAdded.setDate(date);
                     AssignmentList.assignments.add(tobeAdded);
                     NavHostFragment.findNavController(add_assignment.this).navigate(R.id.action_add_assignment_to_navigation_dashboard);
@@ -63,6 +75,8 @@ public class add_assignment extends Fragment {
                     Toast myToast = Toast.makeText(getActivity(), "Invalid Date Entered! Date should be entered MM-DD-YYYY", Toast.LENGTH_SHORT);
                     myToast.show();
                 }
+
+
         }
     });
     }

@@ -1,13 +1,16 @@
 package com.example.a2340projectone.ui.dashboard;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a2340projectone.R;
+import com.example.a2340projectone.ui.home.CourseList;
 
 import java.util.List;
 
@@ -41,48 +45,68 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentVH>{
             holder.checkbox.setChecked(true);
         }
 
+
         holder.itemView.findViewById(R.id.editAssignment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Dialog dialog = new Dialog(v.getContext());
                 dialog.setContentView((R.layout.fragment_add_assignment));
 
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(dialog.getContext(), android.R.layout.simple_spinner_item, CourseList.coursesAvailable);
+                Spinner spinner = dialog.findViewById(R.id.assignmentCourseFill);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner.setAdapter(adapter);
+
                 EditText editText = dialog.findViewById(R.id.assignment_name_fill);
-                EditText editCourse = dialog.findViewById(R.id.assignment_course_fill);
                 EditText editDate = dialog.findViewById(R.id.assignment_duedate_fill);
                 Button updateBtn = dialog.findViewById(R.id.add_assignment_button);
                 TextView title = dialog.findViewById(R.id.textView_Assigment);
+
+
 
                 title.setText("Edit Assignment");
 
                 updateBtn.setText("UPDATE");
 
                 editText.setText((items.get(holder.getAdapterPosition()).getName()));
-                editCourse.setText((items.get(holder.getAdapterPosition()).getCourse()));
                 editDate.setText((items.get(holder.getAdapterPosition()).getDue()));
 
                 updateBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         String name = "", course = "", date = "";
+                        course = (String) spinner.getSelectedItem();
 
                         if (!editText.getText().toString().equals("")) {
                             name = editText.getText().toString();
                         }
-                        if (!editCourse.getText().toString().equals("")) {
-                            course = editCourse.getText().toString();
-                        }
+
                         if (!editDate.getText().toString().equals("")) {
                             date = editDate.getText().toString();
                         }
                         Assignment toBeAdded = new Assignment(name, course);
+                        if (items.get(holder.getAdapterPosition()).isComplete()) {
+                            toBeAdded.toggle();
+                        }
                         if (toBeAdded.checkDate(date)) {
                             toBeAdded.setDate(date);
-                            items.set(holder.getAdapterPosition(), toBeAdded);
-                            notifyItemChanged(holder.getAdapterPosition());
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+                            alertDialogBuilder.setTitle("Edit Assignment");
+                            alertDialogBuilder.setMessage("Are you sure you want to edit this item?");
+
+                            alertDialogBuilder.setPositiveButton("Edit", (dialog, which) -> {
+
+                                items.set(holder.getAdapterPosition(), toBeAdded);
+                                notifyItemChanged(holder.getAdapterPosition());
+                            });
+
+                            alertDialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
+                            });
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.show();
                             dialog.dismiss();
                         } else {
-                            Toast myToast = Toast.makeText(dialog.getOwnerActivity(), "Invalid Date Entered! Date should be entered MM-DD-YYYY", Toast.LENGTH_SHORT);
+                            Toast myToast = Toast.makeText(dialog.getContext(), "Invalid Date Entered! Date should be entered MM-DD-YYYY", Toast.LENGTH_SHORT);
                             myToast.show();
                         }
                     }
@@ -116,8 +140,20 @@ class AssignmentVH extends RecyclerView.ViewHolder {
         checkbox = itemView.findViewById(R.id.assignmentCompleted);
         editAssignment = itemView.findViewById(R.id.editAssignment);
         itemView.findViewById(R.id.deleteAssignment).setOnClickListener(view -> {
-            adapter.items.remove(getAdapterPosition());
-            adapter.notifyItemRemoved(getAdapterPosition());
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+            alertDialogBuilder.setTitle("Delete Assignment");
+            alertDialogBuilder.setMessage("Are you sure you want to delete this item?");
+
+            alertDialogBuilder.setPositiveButton("Delete", (dialog, which) -> {
+                Toast.makeText(view.getContext(), "Deleted Item Successfully", Toast.LENGTH_SHORT);
+                adapter.items.remove(getAdapterPosition());
+                adapter.notifyItemRemoved(getAdapterPosition());
+            });
+
+            alertDialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
+            });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
         });
         checkbox.setOnClickListener(view -> {
             adapter.items.get(getAdapterPosition()).toggle();

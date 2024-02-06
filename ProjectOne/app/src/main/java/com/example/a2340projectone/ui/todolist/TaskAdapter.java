@@ -1,5 +1,6 @@
 package com.example.a2340projectone.ui.todolist;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -75,11 +76,27 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskVH>{
                             date = editDate.getText().toString();
                         }
                         Task toBeAdded = new Task(name, course);
+                        if (items.get(holder.getAdapterPosition()).isComplete()) {
+                            toBeAdded.toggle();
+                        }
                         if (toBeAdded.checkDate(date)) {
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+                            alertDialogBuilder.setTitle("Edit Task");
+                            alertDialogBuilder.setMessage("Are you sure you want to edit this item?");
                             toBeAdded.setDate(date);
-                            items.set(holder.getAdapterPosition(), toBeAdded);
-                            notifyItemChanged(holder.getAdapterPosition());
+                            alertDialogBuilder.setPositiveButton("Edit", (dialog, which) -> {
+
+                                items.set(holder.getAdapterPosition(), toBeAdded);
+                                notifyItemChanged(holder.getAdapterPosition());
+
+                            });
+
+                            alertDialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
+                            });
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.show();
                             dialog.dismiss();
+
                         } else {
                             Toast myToast = Toast.makeText(dialog.getContext(), "Invalid Date Entered! Date should be entered MM-DD-YYYY", Toast.LENGTH_SHORT);
                             myToast.show();
@@ -125,8 +142,20 @@ class TaskVH extends RecyclerView.ViewHolder {
             }
         });
         itemView.findViewById(R.id.deleteItem2).setOnClickListener(view -> {
-            adapter.items.remove(getAdapterPosition());
-            adapter.notifyItemRemoved(getAdapterPosition());
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+            alertDialogBuilder.setTitle("Delete Task");
+            alertDialogBuilder.setMessage("Are you sure you want to delete this item?");
+            alertDialogBuilder.setPositiveButton("Delete", (dialog, which) -> {
+                adapter.items.remove(getAdapterPosition());
+                adapter.notifyItemRemoved(getAdapterPosition());
+
+            });
+
+            alertDialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
+            });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+
         });
     }
 
