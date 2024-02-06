@@ -65,14 +65,6 @@ public class Exam {
     }
 
     public String getTime() {
-        if (Integer.parseInt(time.substring(0,2)) < 12 && Integer.parseInt(time.substring(0,2)) > 7) {
-            time += " AM";
-        } else if (Integer.parseInt(time.substring(0,2)) >= 1 && Integer.parseInt(time.substring(0,2)) < 7) {
-            time += " PM";
-        }
-        else if (Integer.parseInt(time.substring(0,2)) == 12) {
-            time += " PM";
-        }
             return time;
     }
 

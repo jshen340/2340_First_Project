@@ -58,6 +58,7 @@ class ExamVH extends RecyclerView.ViewHolder {
         examCourse = itemView.findViewById(R.id.task);
         examTime = itemView.findViewById(R.id.body);
         examLocation = itemView.findViewById(R.id.dueDate);
+
         itemView.findViewById(R.id.deleteItem2).setOnClickListener(view -> {
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());

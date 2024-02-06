@@ -9,14 +9,19 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentAddExamBinding;
 import com.example.a2340projectone.ui.dashboard.AssignmentList;
 import com.example.a2340projectone.ui.dashboard.add_assignment;
+import com.example.a2340projectone.ui.home.CourseList;
 import com.example.a2340projectone.ui.todolist.Task;
 import com.example.a2340projectone.ui.todolist.TaskList;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,7 +75,13 @@ public class add_exam extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        ArrayList<String> timeOfDay = new ArrayList<>();
+        timeOfDay.add("AM");
+        timeOfDay.add("PM");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, timeOfDay);
+        Spinner spinner = binding.examAMSelection;
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
         binding.confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,6 +109,7 @@ public class add_exam extends Fragment {
 
                 if (tobeAdded.checkTime(String.valueOf(binding.timeTitle.getText()))) {
                     time = String.valueOf(binding.timeTitle.getText());
+                    time += " " + ((String) spinner.getSelectedItem());
                     tobeAdded.setTime(time);
 
                 } else {

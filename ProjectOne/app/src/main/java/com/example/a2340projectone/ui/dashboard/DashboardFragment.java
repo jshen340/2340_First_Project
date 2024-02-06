@@ -33,7 +33,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        binding.assignmentCompletedButton.setText("INCOMPLETE");
         RecyclerView recycler = view.findViewById(R.id.recyclerView_assignment);
         recycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
         AssignmentAdapter adapter = new AssignmentAdapter(AssignmentList.assignments);
@@ -52,10 +52,12 @@ public class DashboardFragment extends Fragment {
         binding.assignmentCompletedButton.setOnClickListener(view1 -> {
             if (AssignmentList.completeListOn) {
                 recycler.setAdapter(adapter1);
+                binding.assignmentCompletedButton.setText("COMPLETED");
                 AssignmentList.completeListOn = !AssignmentList.completeListOn;
                 adapter1.notifyItemInserted(AssignmentList.completedAssignments.size()-1);
             } else {
                 recycler.setAdapter(adapter);
+                binding.assignmentCompletedButton.setText("INCOMPLETE");
                 AssignmentList.completeListOn = !AssignmentList.completeListOn;
                 adapter.notifyItemInserted(AssignmentList.assignments.size()-1);
             }

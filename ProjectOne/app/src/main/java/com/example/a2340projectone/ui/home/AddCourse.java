@@ -9,11 +9,15 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.a2340projectone.R;
 import com.example.a2340projectone.databinding.FragmentAddCourseBinding;
+
+import java.util.ArrayList;
 
 public class AddCourse extends Fragment {
     private FragmentAddCourseBinding binding;
@@ -38,6 +42,15 @@ public class AddCourse extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ArrayList<String> timeOfDay = new ArrayList<>();
+        timeOfDay.add("AM");
+        timeOfDay.add("PM");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, timeOfDay);
+        Spinner startSpinner = binding.startDateAM;
+        Spinner endSpinner = binding.endDateAM;
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        startSpinner.setAdapter(adapter);
+        endSpinner.setAdapter(adapter);
 
         binding.addtodash.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,14 +91,16 @@ public class AddCourse extends Fragment {
                 toBeAdded.setDay(daysString);
 
                 if (toBeAdded.checkTime(binding.timestartinput.getText().toString())) {
-                    toBeAdded.setTimeStart(binding.timestartinput.getText().toString());
+                    String AMPM = (String) startSpinner.getSelectedItem();
+                    toBeAdded.setTimeStart(binding.timestartinput.getText().toString() + " " + AMPM);
                 } else {
                     Toast myToast = Toast.makeText(getActivity(), "Start time should be HH:MM!", Toast.LENGTH_SHORT);
                     myToast.show();
                 }
 
                 if (toBeAdded.checkTime(binding.timeendinput.getText().toString())) {
-                    toBeAdded.setTimeEnd(binding.timeendinput.getText().toString());
+                    String AMPM = (String) endSpinner.getSelectedItem();
+                    toBeAdded.setTimeEnd(binding.timeendinput.getText().toString() + " " + AMPM);
                 } else {
                     Toast myToast = Toast.makeText(getActivity(), "End time should be HH:MM!", Toast.LENGTH_SHORT);
                     myToast.show();

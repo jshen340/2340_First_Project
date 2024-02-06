@@ -7,10 +7,12 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a2340projectone.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> {
@@ -56,6 +59,15 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
                 // Handle edit button click
                 Dialog dialog = new Dialog(view.getContext());
                 dialog.setContentView(R.layout.fragment_add_course);
+                ArrayList<String> timeOfDay = new ArrayList<>();
+                timeOfDay.add("AM");
+                timeOfDay.add("PM");
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(dialog.getContext(), android.R.layout.simple_spinner_item, timeOfDay);
+                Spinner startSpinner = dialog.findViewById(R.id.startDateAM);
+                Spinner endSpinner = dialog.findViewById(R.id.endDateAM);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                startSpinner.setAdapter(adapter);
+                endSpinner.setAdapter(adapter);
 
                 EditText editCourseName = dialog.findViewById(R.id.coursenameinput);
                 EditText editInstructor = dialog.findViewById(R.id.instructorinput);
@@ -70,14 +82,28 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
                 EditText editTimeEnd = dialog.findViewById(R.id.timeendinput);
                 EditText editSection = dialog.findViewById(R.id.sectioninput);
                 EditText editRoom = dialog.findViewById(R.id.roominput);
+
+                String initTimeStart = items.get(position).getTimeStart();
+                if (initTimeStart.substring(initTimeStart.length() - 2, initTimeStart.length()).equals("AM")) {
+                    startSpinner.setSelection(0);
+                } else {
+                    startSpinner.setSelection(1);
+                }
+
+                String initTimeEnd = items.get(position).getTimeEnd();
+                if (initTimeEnd.substring(initTimeEnd.length() - 2, initTimeEnd.length()).equals("AM")) {
+                    endSpinner.setSelection(0);
+                } else {
+                    endSpinner.setSelection(1);
+                }
                 // Add other EditText fields for other course details
 
                 editCourseName.setText(items.get(position).getCourseName());
                 editInstructor.setText(items.get(position).getInstructor());
                 editBuilding.setText(items.get(position).getBuilding());
 
-                editTimeStart.setText(items.get(position).getTimeStart());
-                editTimeEnd.setText(items.get(position).getTimeEnd());
+                editTimeStart.setText(items.get(position).getTimeStart().substring(0 , initTimeStart.length() - 3));
+                editTimeEnd.setText(items.get(position).getTimeEnd().substring(0 , initTimeEnd.length() - 3));
                 editSection.setText(items.get(position).getSection());
                 editRoom.setText(items.get(position).getRoom());
 
@@ -130,14 +156,16 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
                         }
                         toBeAdded.setDay(daysString);
                         if (toBeAdded.checkTime(editTimeStart.getText().toString())) {
-                            toBeAdded.setTimeStart(editTimeStart.getText().toString());
+                            String AMPM = (String) startSpinner.getSelectedItem();
+                            toBeAdded.setTimeStart(editTimeStart.getText().toString() + " " + AMPM);
                         } else {
                             Toast myToast = Toast.makeText(dialog.getContext(), "Start time should be HH:MM!", Toast.LENGTH_SHORT);
                             myToast.show();
                         }
 
                         if (toBeAdded.checkTime(editTimeEnd.getText().toString())) {
-                            toBeAdded.setTimeEnd(editTimeEnd.getText().toString());
+                            String AMPM = (String) endSpinner.getSelectedItem();
+                            toBeAdded.setTimeEnd(editTimeEnd.getText().toString() + " " + AMPM);
                         } else {
                             Toast myToast = Toast.makeText(dialog.getContext(), "End time should be HH:MM!", Toast.LENGTH_SHORT);
                             myToast.show();
@@ -185,6 +213,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
     public class CourseVH extends RecyclerView.ViewHolder {
         TextView courseName, instructor, day, timestart, timeend, section, building, room;
         ImageButton deleteButton, editButton;
+
+        Spinner startTimeSpinner, endTimeSpinner;
 
         private CourseAdapter adapter;
 

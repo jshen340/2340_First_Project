@@ -38,6 +38,7 @@ public class finalAddTask extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        binding.completedSort.setText("INCOMPLETE");
         RecyclerView recycler = view.findViewById(R.id.recyclerView_todo);
         recycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
         TaskAdapter adapter = new TaskAdapter(TaskList.tasks);
@@ -56,10 +57,12 @@ public class finalAddTask extends Fragment {
             if (TaskList.completedListOn) {
                 recycler.setAdapter(adapter1);
                 TaskList.completedListOn = !TaskList.completedListOn;
+                binding.completedSort.setText("INCOMPLETE");
                 adapter1.notifyItemInserted(AssignmentList.completedAssignments.size()-1);
             } else {
                 recycler.setAdapter(adapter);
                 TaskList.completedListOn = !TaskList.completedListOn;
+                binding.completedSort.setText("COMPLETE");
                 adapter.notifyItemInserted(AssignmentList.assignments.size()-1);
             };
         });
