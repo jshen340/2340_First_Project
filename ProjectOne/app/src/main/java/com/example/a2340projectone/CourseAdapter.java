@@ -46,10 +46,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle delete button click
-                items.remove(position);
-                notifyItemRemoved(position);
-                notifyItemRangeChanged(position, items.size());
+               showDeleteConfirmation(position);
             }
         });
 
@@ -57,16 +54,72 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle edit button click
-                showEditDialog(position);
+                 showEditConfirmation(position);
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
         return items.size();
     }
+
+    public void showEditConfirmation(int position) {
+        Dialog editdialog = new Dialog(context);
+        editdialog.setContentView(R.layout.editconfirm);
+
+        Button yesedit = editdialog.findViewById(R.id.yeseditbutton);
+        Button noedit = editdialog.findViewById(R.id.noeditbutton);
+
+        yesedit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editdialog.dismiss();
+                showEditDialog(position);
+            }
+        });
+
+        noedit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editdialog.dismiss();
+            }
+        });
+
+        editdialog.show();
+        editdialog.getWindow().setLayout(1100, 800);
+    }
+
+    public void showDeleteConfirmation(int position) {
+        Dialog deldialog = new Dialog(context);
+        deldialog.setContentView(R.layout.fragment_deleteconfrim);
+
+        Button yesdel = deldialog.findViewById(R.id.yesdelbutton);
+        Button nodel = deldialog.findViewById(R.id.nodelbutton);
+
+        yesdel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deldialog.dismiss();
+                items.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, items.size());
+            }
+        });
+
+        nodel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deldialog.dismiss();
+            }
+        });
+
+        deldialog.show();
+        deldialog.getWindow().setLayout(1100, 800);
+    }
+
+
 
     private void showEditDialog(int position) {
         Dialog dialog = new Dialog(context);
@@ -80,14 +133,26 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
         EditText editTimeEnd = dialog.findViewById(R.id.timeendinput);
         EditText editSection = dialog.findViewById(R.id.sectioninput);
         EditText editRoom = dialog.findViewById(R.id.roominput);
-        // Add other EditText fields for other course details
+
+        // Get the selected item's data
+        Courses selectedCourse = items.get(position);
+
+        // Set the existing data in the EditText fields
+        editCourseName.setText(selectedCourse.getCoursename());
+        editInstructor.setText(selectedCourse.getInstructor());
+        editBuilding.setText(selectedCourse.getBuilding());
+        editDay.setText(selectedCourse.getDay());
+        editTimeStart.setText(selectedCourse.getTimeStart());
+        editTimeEnd.setText(selectedCourse.getTimeEnd());
+        editSection.setText(selectedCourse.getSection());
+        editRoom.setText(selectedCourse.getRoom());
 
         Button addtodashBtn = dialog.findViewById(R.id.addtodash);
-
 
         addtodashBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Extract the updated data from the EditText fields
                 String updatedCourseName = editCourseName.getText().toString();
                 String updatedInstructor = editInstructor.getText().toString();
                 String updatedBuilding = editBuilding.getText().toString();
@@ -96,7 +161,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
                 String updatedTimeEnd = editTimeEnd.getText().toString();
                 String updatedSection = editSection.getText().toString();
                 String updatedRoom = editRoom.getText().toString();
-                // Get other updated details from other EditText fields
 
                 // Update the course at the specified position
                 items.set(position, new Courses(
@@ -116,7 +180,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
         });
 
         dialog.show();
-        dialog.getWindow().setLayout(1000, 1500);
+        dialog.getWindow().setLayout(1100, 1400);
     }
 
     public class CourseVH extends RecyclerView.ViewHolder {
