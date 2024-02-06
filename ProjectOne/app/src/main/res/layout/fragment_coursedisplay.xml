@@ -22,16 +22,15 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="234dp"
-            android:background="#E4D8E6">
+            android:layout_height="234dp">
 
             <TextView
                 android:id="@+id/courseName"
                 android:layout_width="152dp"
                 android:layout_height="33dp"
                 android:text="Course Name"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textAlignment="viewStart"
-                android:textColor="#673AB7"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:typeface="serif"
@@ -44,26 +43,25 @@
 
             <TextView
                 android:id="@+id/instructorName"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Instructor Name"
                 android:textColor="#673AB7"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.335"
+                app:layout_constraintHorizontal_bias="0.292"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.325" />
+                app:layout_constraintVertical_bias="0.283" />
 
             <TextView
                 android:id="@+id/buildingName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Building Name"
                 android:textAlignment="viewStart"
-                android:textColor="#673AB7"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -75,16 +73,15 @@
 
             <TextView
                 android:id="@+id/dayName"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Day"
                 android:textAlignment="viewStart"
-                android:textColor="#673AB7"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.168"
+                app:layout_constraintHorizontal_bias="0.161"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.586" />
@@ -93,9 +90,8 @@
                 android:id="@+id/timestartName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Start"
                 android:textAlignment="viewStart"
-                android:textColor="#673AB7"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -107,27 +103,25 @@
 
             <TextView
                 android:id="@+id/roomName"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Room"
                 android:textAlignment="viewStart"
-                android:textColor="#673AB7"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.205"
+                app:layout_constraintHorizontal_bias="0.21"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.86" />
+                app:layout_constraintVertical_bias="0.865" />
 
             <TextView
                 android:id="@+id/timeendName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="End"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textAlignment="viewStart"
-                android:textColor="#673AB7"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -141,8 +135,7 @@
                 android:id="@+id/sectionName"
                 android:layout_width="71dp"
                 android:layout_height="19dp"
-                android:text="Section"
-                android:textColor="#673AB7"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -154,10 +147,11 @@
 
             <ImageButton
                 android:id="@+id/deleteButton"
-                android:layout_width="65dp"
-                android:layout_height="50dp"
-                android:background="#DBD3E8"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="12dp"
                 android:src="@drawable/ic_delete"
+                android:background="@drawable/baseline_delete_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.985"
@@ -167,35 +161,37 @@
 
             <ImageButton
                 android:id="@+id/editButton"
-                android:layout_width="65dp"
-                android:layout_height="50dp"
-                android:background="#DBD3E8"
-                android:src="@drawable/ic_edit"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/baseline_edit_square_24"
+                android:background="@drawable/baseline_edit_square"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.757"
+                app:layout_constraintHorizontal_bias="0.806"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.967" />
+                app:layout_constraintVertical_bias="0.97" />
 
             <TextView
                 android:id="@+id/instructordisp"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Instructor:"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.046"
+                app:layout_constraintHorizontal_bias="0.056"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.325" />
+                app:layout_constraintVertical_bias="0.283" />
 
             <TextView
                 android:id="@+id/buildingdisp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Building:"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -209,6 +205,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Section:"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -223,6 +220,7 @@
                 android:layout_height="wrap_content"
                 android:text="Room:"
                 android:textColor="@color/black"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.048"
@@ -235,6 +233,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Start Time:"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -246,6 +245,7 @@
             <TextView
                 android:id="@+id/enddisp"
                 android:layout_width="62dp"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_height="21dp"
                 android:text="End Time:"
                 android:textColor="@color/black"
@@ -262,6 +262,7 @@
                 android:layout_height="wrap_content"
                 android:text="Day:"
                 android:textColor="@color/black"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.04"

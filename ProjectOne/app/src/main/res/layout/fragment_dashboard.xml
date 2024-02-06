@@ -18,11 +18,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_assignment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="392dp"
+        android:layout_height="674dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/assignmentCompletedButton"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.128"
+        tools:layout_editor_absoluteX="1dp" />
 
     <Button
         android:id="@+id/addAssignmentInitial"
@@ -32,18 +33,30 @@
         android:text="@string/add"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView_assignment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintVertical_bias="0.832" />
+
+    <Button
+        android:id="@+id/dateSortedButton"
+        android:layout_width="79dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="68dp"
+        android:text="DATE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/assignmentCompletedButton"
         android:layout_width="wrap_content"
         android:layout_height="39dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="68dp"
         android:text="Completed"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/text_dashboard" />
 
@@ -51,21 +64,10 @@
         android:id="@+id/sortCourseButton"
         android:layout_width="100dp"
         android:layout_height="39dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="68dp"
         android:text="Course"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/dateSortedButton"
-        android:layout_width="79dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="4dp"
-        android:text="DATE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
