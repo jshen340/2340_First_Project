@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".coursedisplay">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="234dp"
+            android:background="#E4D8E6">
+
+            <TextView
+                android:id="@+id/courseName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="97dp"
+                android:text="Course Name"
+                android:textAlignment="textStart"
+                android:textColor="#673AB7"
+                android:textStyle="bold"
+                android:typeface="serif"
+                app:layout_constraintEnd_toStartOf="@+id/sectionName"
+                app:layout_constraintStart_toEndOf="@+id/courselogo"
+                app:layout_constraintTop_toBottomOf="@+id/coursedisp" />
+
+            <TextView
+                android:id="@+id/instructorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Instructor Name"
+                android:textColor="#673AB7"
+                android:textStyle="bold"
+                android:typeface="serif"
+                app:layout_constraintStart_toEndOf="@+id/courselogo"
+                app:layout_constraintTop_toBottomOf="@+id/instructordisp" />
+
+            <TextView
+                android:id="@+id/buildingName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="40dp"
+                android:text="Building Name"
+                android:textColor="#673AB7"
+                android:textStyle="bold"
+                android:typeface="serif"
+                app:layout_constraintEnd_toStartOf="@+id/timestartName"
+                app:layout_constraintStart_toEndOf="@+id/courselogo"
+                app:layout_constraintTop_toBottomOf="@+id/buildingdisp" />
+
+            <TextView
+                android:id="@+id/dayName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="119dp"
+                android:text="Day"
+                android:textColor="#673AB7"
+                android:textStyle="bold"
+                android:typeface="serif"
+                app:layout_constraintEnd_toStartOf="@+id/editButton"
+                app:layout_constraintStart_toEndOf="@+id/courselogo"
+                app:layout_constraintTop_toBottomOf="@+id/daydisp" />
+
+            <TextView
+                android:id="@+id/timestartName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="Start"
+                android:textColor="#673AB7"
+                android:textStyle="bold"
+                android:typeface="serif"
+                app:layout_constraintStart_toEndOf="@+id/buildingName"
+                app:layout_constraintTop_toBottomOf="@+id/startdisp" />
+
+            <TextView
+                android:id="@+id/roomName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginEnd="67dp"
+                android:text="Room"
+                android:textColor="#673AB7"
+                android:textStyle="bold"
+                android:typeface="serif"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/instructorName"
+                app:layout_constraintTop_toBottomOf="@+id/roomdisp" />
+
+            <TextView
+                android:id="@+id/timeendName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End"
+                android:textColor="#673AB7"
+                android:textStyle="bold"
+                android:typeface="serif"
+                tools:layout_editor_absoluteX="346dp"
+                tools:layout_editor_absoluteY="140dp" />
+
+            <TextView
+                android:id="@+id/sectionName"
+                android:layout_width="71dp"
+                android:layout_height="19dp"
+                android:layout_marginEnd="37dp"
+                android:text="Section"
+                android:textColor="#673AB7"
+                android:textStyle="bold"
+                android:typeface="serif"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sectiondisp" />
+
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="65dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="16dp"
+                android:background="#DBD3E8"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editButton" />
+
+            <ImageButton
+                android:id="@+id/editButton"
+                android:layout_width="65dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="158dp"
+                android:layout_marginEnd="11dp"
+                android:layout_marginBottom="16dp"
+                android:background="#DBD3E8"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+                app:layout_constraintStart_toEndOf="@+id/courselogo" />
+
+            <ImageView
+                android:id="@+id/courselogo"
+                android:layout_width="106dp"
+                android:layout_height="233dp"
+                android:src="@drawable/ic_course"
+                tools:layout_editor_absoluteY="1dp" />
+
+            <TextView
+                android:id="@+id/coursedisp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Course Name:"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="112dp" />
+
+            <TextView
+                android:id="@+id/instructordisp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="127dp"
+                android:text="Instructor:"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/roomdisp"
+                app:layout_constraintStart_toEndOf="@+id/courselogo"
+                app:layout_constraintTop_toBottomOf="@+id/courseName" />
+
+            <TextView
+                android:id="@+id/buildingdisp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                android:text="Building:"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/courselogo"
+                app:layout_constraintTop_toBottomOf="@+id/instructorName" />
+
+            <TextView
+                android:id="@+id/sectiondisp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Section:"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="303dp" />
+
+            <TextView
+                android:id="@+id/roomdisp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="68dp"
+                android:text="Room:"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sectionName" />
+
+            <TextView
+                android:id="@+id/startdisp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="92dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="17dp"
+                android:text="Start Time:"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/enddisp"
+                app:layout_constraintStart_toEndOf="@+id/buildingdisp"
+                app:layout_constraintTop_toBottomOf="@+id/roomName" />
+
+            <TextView
+                android:id="@+id/enddisp"
+                android:layout_width="62dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="5dp"
+                android:text="End Time:"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/startdisp"
+                app:layout_constraintTop_toBottomOf="@+id/roomName" />
+
+            <TextView
+                android:id="@+id/daydisp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day:"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="116dp"
+                tools:layout_editor_absoluteY="167dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

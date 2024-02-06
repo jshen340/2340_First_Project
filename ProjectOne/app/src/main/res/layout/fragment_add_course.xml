@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCourse">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <Button
+        android:id="@+id/addtodash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="256dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="60dp"
+        android:text="Dashboard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/addcoursetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="20dp"
+        android:text="Add Course Details"
+        android:textColor="#0E0E0E"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/coursetitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/coursetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="175dp"
+        android:text="Course Name:"
+        android:textColor="#0B0A0A"
+        app:layout_constraintBottom_toTopOf="@+id/coursenameinput"
+        app:layout_constraintEnd_toStartOf="@+id/sectiontitle"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/instructortitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="322dp"
+        android:text="Instructor:"
+        android:textColor="#0B0A0A"
+        app:layout_constraintBottom_toTopOf="@+id/instructorinput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/daytitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="359dp"
+        android:text="Day:"
+        android:textColor="#0B0A0A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instructorinput" />
+
+    <TextView
+        android:id="@+id/timetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="351dp"
+        android:text="Time:"
+        android:textColor="#0B0A0A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayinput" />
+
+    <TextView
+        android:id="@+id/buildingtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="147dp"
+        android:text="Building:"
+        android:textColor="#0B0A0A"
+        app:layout_constraintBottom_toTopOf="@+id/buildinginput"
+        app:layout_constraintEnd_toStartOf="@+id/roomtitle"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/roomtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="145dp"
+        android:text="Room:"
+        android:textColor="#0B0A0A"
+        app:layout_constraintBottom_toTopOf="@+id/roominput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buildingtitle"
+        app:layout_constraintTop_toBottomOf="@+id/timeendinput"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/coursenameinput"
+        android:layout_width="231dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:hint="Course Name"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/instructortitle"
+        app:layout_constraintEnd_toStartOf="@+id/sectioninput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/instructorinput"
+        android:layout_width="361dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:hint="Instructor"
+        app:layout_constraintBottom_toTopOf="@+id/daytitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/dayinput"
+        android:layout_width="361dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:hint="Day"
+        app:layout_constraintBottom_toTopOf="@+id/timetitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daytitle" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/timestartinput"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Start"
+        app:layout_constraintBottom_toTopOf="@+id/buildingtitle"
+        app:layout_constraintEnd_toStartOf="@+id/timeendinput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timetitle"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/buildinginput"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="120dp"
+        android:hint="Building"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/roominput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/roominput"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Room"
+        app:layout_constraintBottom_toTopOf="@+id/addtodash"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        android:id="@+id/sectiontitle"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginEnd="34dp"
+        android:text="Class Section:"
+        android:textColor="#0B0A0A"
+        app:layout_constraintBottom_toTopOf="@+id/sectioninput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/coursetitle" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/sectioninput"
+        android:layout_width="93dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Section"
+        app:layout_constraintBottom_toTopOf="@+id/instructorinput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/coursenameinput" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/timeendinput"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="10dp"
+        android:hint="End"
+        app:layout_constraintBottom_toTopOf="@+id/buildingtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/timestartinput" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
