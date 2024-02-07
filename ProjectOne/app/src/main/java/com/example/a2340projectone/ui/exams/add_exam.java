@@ -82,6 +82,11 @@ public class add_exam extends Fragment {
         Spinner spinner = binding.examAMSelection;
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, CourseList.coursesAvailable);
+        Spinner spinner1 = binding.courseExamSpinner;
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(adapter1);
         binding.confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,7 +97,7 @@ public class add_exam extends Fragment {
                 String time = "";
 
                 examTitle = String.valueOf(binding.examTitle.getText());
-                courseTitle = String.valueOf(binding.courseTitle.getText());
+                courseTitle = (String) spinner1.getSelectedItem();
                 date = String.valueOf(binding.dateTitle.getText());
                 location = String.valueOf(binding.locationTitle.getText());
                 time = String.valueOf(binding.timeTitle.getText());
@@ -118,7 +123,6 @@ public class add_exam extends Fragment {
                 }
                 if (tobeAdded.checkDate(String.valueOf(binding.dateTitle.getText())) && tobeAdded.checkTime(String.valueOf(binding.timeTitle.getText()))) {
                     binding.examTitle.setText("");
-                    binding.courseTitle.setText("");
                     binding.dateTitle.setText("");
                     binding.locationTitle.setText("");
                     binding.timeTitle.setText("");

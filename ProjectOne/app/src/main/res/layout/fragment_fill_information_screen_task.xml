@@ -18,6 +18,97 @@
         tools:layout_editor_absoluteY="22dp">
 
 
+        <EditText
+            android:id="@+id/duedate_fill"
+            android:layout_width="334dp"
+            android:layout_height="39dp"
+            android:ems="10"
+            android:hint="MM-DD-YYYY"
+            android:inputType="datetime|date"
+            android:textColor="#989898"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.471" />
+
+        <TextView
+            android:id="@+id/category_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category:"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.128"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.282" />
+
+        <EditText
+            android:id="@+id/task_fill"
+            android:layout_width="334dp"
+            android:layout_height="39dp"
+            android:ems="10"
+            android:hint="Enter Task Here"
+            android:inputType="text"
+            android:textColor="#989898"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.203" />
+
+        <EditText
+            android:id="@+id/category_fill"
+            android:layout_width="334dp"
+            android:layout_height="39dp"
+            android:ems="10"
+            android:hint="Enter Category Here"
+            android:inputType="text"
+            android:textColor="#989898"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.328"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/task_due_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finish Task By:"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.141"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.422" />
+
+        <TextView
+            android:id="@+id/task_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task name:"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.133"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.163" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -29,119 +120,23 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.537"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.123"
+            app:layout_constraintVertical_bias="0.066"
             tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/task_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
-            android:text="Task name:"
-            android:textColor="#000000"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/task_fill"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.132"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.927" />
-
-        <EditText
-            android:id="@+id/task_fill"
-            android:layout_width="334dp"
-            android:layout_height="39dp"
-            android:layout_marginBottom="64dp"
-            android:ems="10"
-            android:hint="Enter Task Here"
-            android:inputType="text"
-            android:textColor="#989898"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/category_fill"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.593"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.812" />
-
-        <TextView
-            android:id="@+id/category_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
-            android:text="Category:"
-            android:textColor="#000000"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.121"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/task_name" />
-
-        <EditText
-            android:id="@+id/category_fill"
-            android:layout_width="334dp"
-            android:layout_height="39dp"
-            android:layout_marginTop="148dp"
-            android:layout_marginBottom="172dp"
-            android:ems="10"
-            android:hint="Enter Class Here"
-            android:inputType="text"
-            android:textColor="#989898"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/confirm"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.593"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.125"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/task_due_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
-            android:text="Finish Task By:"
-            android:textColor="#000000"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/duedate_fill"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.136"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/category_name"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <EditText
-            android:id="@+id/duedate_fill"
-            android:layout_width="334dp"
-            android:layout_height="39dp"
-            android:ems="10"
-            android:hint="MM-DD-YYYY"
-            android:inputType="text"
-            android:textColor="#989898"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/confirm"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.61"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/category_fill"
-            app:layout_constraintVertical_bias="0.688" />
 
         <Button
             android:id="@+id/confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="252dp"
             android:text="Add Task"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintHorizontal_bias="0.461"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.916" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.691" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

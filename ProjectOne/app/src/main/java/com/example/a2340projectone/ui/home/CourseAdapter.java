@@ -59,6 +59,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
                 // Handle edit button click
                 Dialog dialog = new Dialog(view.getContext());
                 dialog.setContentView(R.layout.fragment_add_course);
+                TextView headertitle = dialog.findViewById(R.id.addcoursetitle);
+                headertitle.setText("Edit Course");
                 ArrayList<String> timeOfDay = new ArrayList<>();
                 timeOfDay.add("AM");
                 timeOfDay.add("PM");
@@ -120,6 +122,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
 
 
                 Button addtodashBtn = dialog.findViewById(R.id.addtodash);
+                addtodashBtn.setText("Update");
                 addtodashBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -142,6 +145,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
                         }
                         String daysString = "";
                         Courses toBeAdded = new Courses(courseDash, instructorDash, daysString, sectionDash, buildingDash, roomDash);
+                        int changeIndex = CourseList.coursesAvailable.indexOf(items.get(holder.getAdapterPosition()).getCourseName());
+                        CourseList.coursesAvailable.set(changeIndex, courseDash);
                         for (int i = 0; i < daysSecond.length; i++) {
                             if (!daysSecond[i].equals("")) {
                                 toBeAdded.getDaysClassHeld()[i] = true;
@@ -239,6 +244,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseVH> 
 
                 alertDialogBuilder.setPositiveButton("Delete", (dialog, which) -> {
                     Toast.makeText(view.getContext(), "Deleted Item Successfully", Toast.LENGTH_SHORT);
+                    CourseList.coursesAvailable.remove(adapter.items.get(getAdapterPosition()).getCourseName());
                     adapter.items.remove(getAdapterPosition());
                     adapter.notifyItemRemoved(getAdapterPosition());
                 });

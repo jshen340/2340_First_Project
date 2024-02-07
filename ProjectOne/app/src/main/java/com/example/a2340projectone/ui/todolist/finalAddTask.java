@@ -57,12 +57,12 @@ public class finalAddTask extends Fragment {
             if (TaskList.completedListOn) {
                 recycler.setAdapter(adapter1);
                 TaskList.completedListOn = !TaskList.completedListOn;
-                binding.completedSort.setText("INCOMPLETE");
+                binding.completedSort.setText("COMPLETE");
                 adapter1.notifyItemInserted(AssignmentList.completedAssignments.size()-1);
             } else {
                 recycler.setAdapter(adapter);
                 TaskList.completedListOn = !TaskList.completedListOn;
-                binding.completedSort.setText("COMPLETE");
+                binding.completedSort.setText("INCOMPLETE");
                 adapter.notifyItemInserted(AssignmentList.assignments.size()-1);
             };
         });

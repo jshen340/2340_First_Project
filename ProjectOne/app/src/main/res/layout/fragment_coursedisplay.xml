@@ -26,10 +26,10 @@
 
             <TextView
                 android:id="@+id/courseName"
-                android:layout_width="152dp"
-                android:layout_height="33dp"
-                android:text="Course Name"
                 style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_width="222dp"
+                android:layout_height="29dp"
+                android:text="Course Name"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -58,10 +58,10 @@
 
             <TextView
                 android:id="@+id/buildingName"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="viewStart"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -81,17 +81,17 @@
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.161"
+                app:layout_constraintHorizontal_bias="0.177"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.586" />
+                app:layout_constraintVertical_bias="0.902" />
 
             <TextView
                 android:id="@+id/timestartName"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="viewStart"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -111,47 +111,47 @@
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.21"
+                app:layout_constraintHorizontal_bias="0.263"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.865" />
+                app:layout_constraintVertical_bias="0.586" />
 
             <TextView
                 android:id="@+id/timeendName"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textAlignment="viewStart"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.822"
+                app:layout_constraintHorizontal_bias="0.836"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.586" />
 
             <TextView
                 android:id="@+id/sectionName"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="71dp"
                 android:layout_height="19dp"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textStyle="bold"
                 android:typeface="serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.232"
+                app:layout_constraintHorizontal_bias="0.265"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.734" />
+                app:layout_constraintVertical_bias="0.73" />
 
             <ImageButton
                 android:id="@+id/deleteButton"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginEnd="12dp"
-                android:src="@drawable/ic_delete"
                 android:background="@drawable/baseline_delete_24"
+                android:src="@drawable/ic_delete"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.985"
@@ -163,8 +163,8 @@
                 android:id="@+id/editButton"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/baseline_edit_square_24"
                 android:background="@drawable/baseline_edit_square"
+                android:src="@drawable/baseline_edit_square_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.806"
@@ -181,17 +181,17 @@
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.056"
+                app:layout_constraintHorizontal_bias="0.045"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.283" />
+                app:layout_constraintVertical_bias="0.279" />
 
             <TextView
                 android:id="@+id/buildingdisp"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Building:"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -202,38 +202,38 @@
 
             <TextView
                 android:id="@+id/sectiondisp"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Section:"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.043"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.739" />
+                app:layout_constraintVertical_bias="0.734" />
 
             <TextView
                 android:id="@+id/roomdisp"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Room:"
                 android:textColor="@color/black"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.048"
+                app:layout_constraintHorizontal_bias="0.042"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.865" />
+                app:layout_constraintVertical_bias="0.586" />
 
             <TextView
                 android:id="@+id/startdisp"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Start Time:"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -244,31 +244,31 @@
 
             <TextView
                 android:id="@+id/enddisp"
-                android:layout_width="62dp"
                 style="@style/TextAppearance.MaterialComponents.Subtitle2"
-                android:layout_height="21dp"
+                android:layout_width="88dp"
+                android:layout_height="22dp"
                 android:text="End Time:"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.805"
+                app:layout_constraintHorizontal_bias="0.869"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.455" />
+                app:layout_constraintVertical_bias="0.448" />
 
             <TextView
                 android:id="@+id/daydisp"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Day:"
+                android:text="Days:"
                 android:textColor="@color/black"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintHorizontal_bias="0.041"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.586" />
+                app:layout_constraintVertical_bias="0.906" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

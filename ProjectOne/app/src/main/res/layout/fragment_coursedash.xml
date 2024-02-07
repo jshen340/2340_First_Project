@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     app:layout_constraintBottom_toTopOf="@id/nav_view"
     tools:context=".ui.home.coursedash"
-    tools:layout_editor_absoluteX="-17dp"
-    tools:layout_editor_absoluteY="-65dp">
+    tools:layout_editor_absoluteX="0dp">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -17,27 +16,28 @@
         android:layout_width="286dp"
         android:layout_height="53dp"
         android:layout_marginStart="62dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="63dp"
         android:text="Course Dashboard"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#090909"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/addcbtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="39dp"
+        android:layout_height="48dp"
         android:layout_marginStart="266dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="160dp"
+        android:layout_marginBottom="44dp"
         android:text="+"
         app:layout_constraintBottom_toBottomOf="@+id/courselist_recycle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.647"
+        app:layout_constraintHorizontal_bias="0.869"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -46,7 +46,7 @@
         android:layout_height="639dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CourseDashboard"
         app:layout_constraintVertical_bias="0.0" />

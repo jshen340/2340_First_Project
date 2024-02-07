@@ -104,8 +104,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskVH>{
                     }
                 });
                 dialog.show();
-                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                dialog.getWindow().setGravity(Gravity.CENTER);
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+//                dialog.getWindow().setGravity(Gravity.CENTER);
             }
         });
     }
